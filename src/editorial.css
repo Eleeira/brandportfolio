@@ -1,0 +1,1308 @@
+@import "tailwindcss";
+
+
+@font-face {
+    font-family: 'Opulent';
+    src: url('/fonts/Opulent.woff') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================================
+   01. DESIGN TOKENS
+   STELLA / MINIMAL LUXURY MAISON
+   ========================================================== */
+
+:root {
+    /* ---------- Palette ---------- */
+
+    /*
+     * Koko Gaming palette
+     * Main: pink · sky blue · warm yellow
+     */
+
+    --cartoon-ink:
+        #403740;
+
+    --cartoon-paper:
+        #fff7f9;
+
+    --cartoon-paper-soft:
+        #fffafb;
+
+    --cartoon-soft:
+        #fffafb;
+
+    --cartoon-muted:
+        #756976;
+
+
+
+    /* YELLOW */
+
+    --cartoon-concerto:
+        #ffe7a0;
+
+
+
+    /* BLUE */
+
+    --cartoon-cloudy:
+        #a2dbee;
+
+    --cartoon-cloudy-soft:
+        #def4fa;
+
+
+
+    /* PINK */
+    --cartoon-cinerous:
+        #ed7491;
+    --cartoon-cinerous-soft:
+        #f7cad5;
+
+
+
+    /* DEEP ACCENT */
+    --cartoon-alaska:
+        #c95876;
+
+
+    /* ---------- Compatibility ---------- */
+
+    --cartoon-pink:
+        #ed7491;
+
+    --cartoon-pink-soft:
+        #f7cad5;
+
+
+
+    --cartoon-mint:
+        #a2dbee;
+
+    --cartoon-mint-soft:
+        #def4fa;
+
+    --cartoon-mint-deep:
+        #6fc4df;
+
+
+
+    --cartoon-yellow:
+        #ffd45f;
+
+    --cartoon-yellow-soft:
+        #fff1bd;
+
+    --cartoon-yellow-deep:
+        #dfb845;
+
+
+
+    --cartoon-peach:
+        #f4b8c5;
+
+
+
+    /* ---------- Lines ---------- */
+
+    --cartoon-line:
+        rgba(64, 55, 64, 0.14);
+
+    --cartoon-line-strong:
+        rgba(64, 55, 64, 0.26);
+
+    --cartoon-border:
+        var(--cartoon-line);
+
+
+
+    /* ---------- Shadows ---------- */
+
+    --cartoon-shadow-sm:
+        0 8px 24px rgba(98, 68, 87, 0.055);
+
+    --cartoon-shadow-md:
+        0 16px 38px rgba(98, 68, 87, 0.085);
+
+    --cartoon-shadow-lg:
+        0 24px 60px rgba(98, 68, 87, 0.12);
+
+
+
+    /* ---------- Radius ---------- */
+
+    --cartoon-radius-sm:
+        2px;
+
+    --cartoon-radius-md:
+        4px;
+
+    --cartoon-radius-lg:
+        7px;
+
+    --cartoon-radius-pill:
+        999px;
+
+
+
+    /* ---------- Typography ---------- */
+
+    --font-display:
+        "Fredoka Variable",
+        "Fredoka",
+        sans-serif;
+
+    --font-sans:
+        "Nunito Sans Variable",
+        "Nunito Sans",
+        sans-serif;
+
+    --font-hand:
+        "Gaegu",
+        cursive;
+
+
+
+    /* ---------- Typographic scale ---------- */
+
+    --type-site-title:
+        clamp(2rem,
+            4.2vw,
+            3.15rem);
+
+    --type-page-title:
+        clamp(1.55rem,
+            1.7vw,
+            2rem);
+
+    --type-page-title-large:
+        clamp(1.7rem,
+            1.9vw,
+            2.2rem);
+
+    --type-page-title-small:
+        clamp(1.35rem,
+            1.5vw,
+            1.7rem);
+
+    --type-body:
+        0.9rem;
+
+    --type-body-small:
+        0.79rem;
+
+    --type-ui:
+        0.7rem;
+
+    --type-meta:
+        0.66rem;
+
+    --type-micro:
+        0.62rem;
+}
+
+
+/* ==========================================================
+   02. DOCUMENT
+   ========================================================== */
+
+html,
+body,
+#root {
+    width: 100%;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    margin: 0;
+}
+
+
+html {
+    background:
+        var(--cartoon-paper);
+}
+
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background:
+        var(--cartoon-paper);
+
+    color:
+        var(--cartoon-ink);
+
+    font-family:
+        var(--font-sans);
+
+    font-size:
+        16px;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+    text-rendering:
+        optimizeLegibility;
+}
+
+
+/* ==========================================================
+   03. BASE
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing:
+        border-box;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font:
+        inherit;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+button {
+    color:
+        inherit;
+}
+
+
+img,
+picture,
+svg {
+    display:
+        block;
+
+    max-width:
+        100%;
+}
+
+
+::selection {
+    background:
+        var(--cartoon-cinerous-soft);
+
+    color:
+        var(--cartoon-ink);
+}
+
+
+:focus-visible {
+    outline:
+        1px solid var(--cartoon-cinerous);
+
+    outline-offset:
+        4px;
+}
+
+
+/* ==========================================================
+   04. APP SHELL
+   ========================================================== */
+
+.editorial-app {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    min-height:
+        100dvh;
+
+    overflow-x:
+        hidden;
+
+    background:
+        var(--cartoon-paper);
+
+    color:
+        var(--cartoon-ink);
+}
+
+
+.editorial-background {
+    pointer-events:
+        none;
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        0;
+
+    background:
+        linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.28),
+            transparent 32%,
+            rgba(169, 130, 99, 0.025));
+}
+
+
+.editorial-glow {
+    pointer-events:
+        none;
+
+    position:
+        fixed;
+
+    z-index:
+        0;
+
+    border-radius:
+        999px;
+
+    filter:
+        blur(64px);
+}
+
+
+.editorial-glow-left {
+    width:
+        18rem;
+
+    height:
+        18rem;
+
+    left:
+        -8rem;
+
+    top:
+        15%;
+
+    background:
+        var(--cartoon-concerto);
+
+    opacity:
+        0.32;
+}
+
+
+.editorial-glow-right {
+    width:
+        20rem;
+
+    height:
+        20rem;
+
+    right:
+        -9rem;
+
+    bottom:
+        8%;
+
+    background:
+        var(--cartoon-cloudy);
+
+    opacity:
+        0.17;
+}
+
+
+.editorial-content {
+    position:
+        relative;
+
+    z-index:
+        10;
+
+    display:
+        flex;
+
+    width:
+        100%;
+
+    max-width:
+        2280px;
+
+    margin:
+        0 auto;
+
+    flex-direction:
+        column;
+}
+
+
+/* ==========================================================
+   05. HEADER
+   ========================================================== */
+
+.editorial-header-wrap {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        920px;
+
+    margin:
+        0 auto;
+}
+
+
+.editorial-header {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        860px;
+
+    margin:
+        0 auto;
+
+    padding:
+        1.75rem 1.25rem 0.75rem;
+}
+
+
+.editorial-header-inner {
+    display:
+        flex;
+
+    width:
+        100%;
+
+    max-width:
+        640px;
+
+    margin:
+        0 auto;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    text-align:
+        center;
+}
+
+
+.editorial-site-title {
+    margin:
+        0;
+
+    font-family:
+        var(--font-display);
+
+    font-size:
+        var(--type-site-title);
+
+    font-weight:
+        400;
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.025em;
+
+    color:
+        var(--cartoon-ink);
+}
+
+
+.editorial-title-rule {
+    width:
+        2.25rem;
+
+    height:
+        1px;
+
+    margin-top:
+        1rem;
+
+    background:
+        var(--cartoon-cinerous);
+
+    opacity:
+        0.82;
+}
+
+
+.editorial-header-meta {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        0.4rem 0.8rem;
+
+    margin-top:
+        0.8rem;
+
+    font-family:
+        var(--font-sans);
+
+    font-size:
+        var(--type-ui);
+
+    font-weight:
+        500;
+
+    line-height:
+        1.5;
+
+    letter-spacing:
+        0.055em;
+
+    color:
+        var(--cartoon-muted);
+}
+
+
+.editorial-meta-dot {
+    color:
+        var(--cartoon-cloudy);
+}
+
+
+/* ==========================================================
+   06. LANGUAGE SWITCH
+   ========================================================== */
+
+.language-position {
+    position:
+        relative;
+
+    z-index:
+        30;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    margin-top:
+        0.25rem;
+
+    padding-bottom:
+        0.25rem;
+}
+
+
+.language-switch {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        1.15rem;
+
+    font-family:
+        var(--font-sans);
+}
+
+
+.language-option {
+    position:
+        relative;
+
+    display:
+        flex;
+
+    min-width:
+        1.7rem;
+
+    min-height:
+        2.25rem;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        0;
+
+    padding:
+        0 0 0.35rem;
+
+    background:
+        transparent;
+
+    color:
+        var(--cartoon-muted);
+
+    font-size:
+        var(--type-ui);
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.12em;
+
+    text-transform:
+        uppercase;
+
+    cursor:
+        pointer;
+
+    transition:
+        color 220ms ease;
+}
+
+
+.language-option::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        0;
+
+    width:
+        0;
+
+    height:
+        1px;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        var(--cartoon-cinerous);
+
+    opacity:
+        0;
+
+    transition:
+        width 240ms ease,
+        opacity 240ms ease;
+}
+
+
+.language-option:hover,
+.language-option:focus-visible,
+.language-option.is-active {
+    color:
+        var(--cartoon-ink);
+}
+
+
+.language-option:hover::after,
+.language-option:focus-visible::after {
+    width:
+        68%;
+
+    opacity:
+        0.65;
+}
+
+
+.language-option.is-active::after {
+    width:
+        100%;
+
+    opacity:
+        1;
+}
+
+
+/* ==========================================================
+   07. STAGE
+   ========================================================== */
+
+.editorial-stage {
+    position:
+        relative;
+
+    z-index:
+        10;
+
+    display:
+        flex;
+
+    width:
+        100%;
+
+    margin:
+        0 auto;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    padding:
+        0.75rem 0.75rem 0;
+}
+
+
+/* ==========================================================
+   08. CONTROLS
+   ========================================================== */
+
+.editorial-controls-wrap {
+    position:
+        relative;
+
+    z-index:
+        50;
+
+    width:
+        100%;
+
+    max-width:
+        900px;
+
+    margin:
+        0.8rem auto 0;
+
+    padding:
+        0 1rem 1.5rem;
+}
+
+
+.editorial-controls-stack {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        0.9rem;
+}
+
+
+.book-controls {
+    display:
+        grid;
+
+    width:
+        100%;
+
+    max-width:
+        220px;
+
+    margin:
+        0 auto;
+
+    grid-template-columns:
+        40px 1fr 40px;
+
+    align-items:
+        center;
+
+    gap:
+        0.75rem;
+}
+
+
+.book-control-slot:first-child {
+    justify-self:
+        start;
+}
+
+
+.book-control-slot:last-child {
+    justify-self:
+        end;
+}
+
+
+.book-control-button {
+    display:
+        flex;
+
+    width:
+        2.5rem;
+
+    height:
+        2.5rem;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid var(--cartoon-line);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,
+            250,
+            244,
+            0.55);
+
+    color:
+        var(--cartoon-ink);
+
+    box-shadow:
+        0 5px 16px rgba(42,
+            36,
+            31,
+            0.03);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 220ms ease,
+        color 220ms ease,
+        background 220ms ease,
+        border-color 220ms ease;
+}
+
+
+.book-control-button:hover:not(:disabled) {
+    border-color:
+        var(--cartoon-cinerous);
+
+    background:
+        var(--cartoon-concerto);
+}
+
+
+.book-control-button:active:not(:disabled) {
+    transform:
+        scale(0.95);
+}
+
+
+.book-control-button:disabled {
+    pointer-events:
+        none;
+
+    border-color:
+        transparent;
+
+    background:
+        transparent;
+
+    color:
+        var(--cartoon-cloudy);
+
+    opacity:
+        0.5;
+}
+
+
+.book-control-icon {
+    transition:
+        transform 220ms ease;
+}
+
+
+.book-control-button.previous:hover:not(:disabled) .book-control-icon {
+    transform:
+        translateX(-2px);
+}
+
+
+.book-control-button.next:hover:not(:disabled) .book-control-icon {
+    transform:
+        translateX(2px);
+}
+
+
+.book-counter {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    white-space:
+        nowrap;
+
+    font-family:
+        var(--font-sans);
+
+    font-size:
+        var(--type-ui);
+
+    font-weight:
+        500;
+
+    font-variant-numeric:
+        tabular-nums;
+
+    letter-spacing:
+        0.08em;
+}
+
+
+.book-counter-current,
+.book-counter-total {
+    min-width:
+        1.8rem;
+}
+
+
+.book-counter-current {
+    text-align:
+        right;
+
+    color:
+        var(--cartoon-ink);
+}
+
+
+.book-counter-total {
+    text-align:
+        left;
+
+    color:
+        var(--cartoon-muted);
+}
+
+
+.book-counter-line {
+    width:
+        1.3rem;
+
+    height:
+        1px;
+
+    margin:
+        0 0.55rem;
+
+    background:
+        var(--cartoon-cloudy);
+}
+
+
+/* ==========================================================
+   09. FOOTER
+   ========================================================== */
+
+.editorial-footer {
+    width:
+        100%;
+
+    max-width:
+        680px;
+
+    margin:
+        0 auto;
+}
+
+
+.editorial-footer-nav {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        0.45rem 1.15rem;
+}
+
+
+.editorial-footer-link {
+    border-bottom:
+        1px solid transparent;
+
+    padding:
+        0.15rem 0;
+
+    color:
+        var(--cartoon-muted);
+
+    font-family:
+        var(--font-sans);
+
+    font-size:
+        var(--type-ui);
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        0.035em;
+
+    text-decoration:
+        none;
+
+    transition:
+        color 180ms ease,
+        border-color 180ms ease;
+}
+
+
+.editorial-footer-link:hover {
+    border-color:
+        var(--cartoon-cinerous);
+
+    color:
+        var(--cartoon-ink);
+}
+
+
+/* ==========================================================
+   10. SCROLLBAR
+   ========================================================== */
+
+* {
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        var(--cartoon-cloudy) var(--cartoon-paper);
+}
+
+
+*::-webkit-scrollbar {
+    width:
+        8px;
+
+    height:
+        8px;
+}
+
+
+*::-webkit-scrollbar-track {
+    background:
+        var(--cartoon-paper);
+}
+
+
+*::-webkit-scrollbar-thumb {
+    border:
+        2px solid var(--cartoon-paper);
+
+    border-radius:
+        999px;
+
+    background:
+        var(--cartoon-cloudy);
+}
+
+
+*::-webkit-scrollbar-thumb:hover {
+    background:
+        var(--cartoon-cinerous);
+}
+
+
+/* ==========================================================
+   11. TABLET+
+   ========================================================== */
+
+@media (min-width: 640px) {
+    .editorial-header {
+        padding:
+            2rem 2rem 0.85rem;
+    }
+
+
+    .language-position {
+        position:
+            absolute;
+
+        right:
+            1.5rem;
+
+        top:
+            1.8rem;
+
+        margin-top:
+            0;
+
+        padding-bottom:
+            0;
+    }
+
+
+    .editorial-stage {
+        padding:
+            0.9rem 1.25rem 0;
+    }
+
+
+}
+
+
+/* ==========================================================
+   12. MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+    :root {
+        --type-site-title:
+            clamp(1.8rem,
+                9vw,
+                2.55rem);
+
+        --type-page-title:
+            1.55rem;
+
+        --type-page-title-large:
+            1.7rem;
+
+        --type-page-title-small:
+            1.4rem;
+
+        --type-body:
+            0.88rem;
+
+        --type-body-small:
+            0.78rem;
+
+        --type-ui:
+            0.69rem;
+
+        --type-meta:
+            0.64rem;
+    }
+
+
+    .editorial-header {
+        padding-top:
+            1.35rem;
+    }
+
+
+    .editorial-header-meta {
+        max-width:
+            22rem;
+
+        line-height:
+            1.45;
+    }
+
+
+    .editorial-stage {
+        padding:
+            2.8rem 0.65rem 0;
+    }
+
+
+    .system-aa {
+        font-size:
+            1.8rem;
+    }
+
+
+    .system-swatch {
+        width:
+            1.6rem;
+
+        height:
+            1.6rem;
+    }
+
+
+    .editorial-controls-wrap {
+        margin-top:
+            0.65rem;
+    }
+}
+
+
+/* ==========================================================
+   13. SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 430px) {
+    .editorial-header-meta {
+        gap:
+            0.2rem 0.55rem;
+
+        font-size:
+            0.66rem;
+    }
+
+
+    .editorial-meta-dot {
+        display:
+            none;
+    }
+
+
+    .editorial-header-meta span:not(.editorial-meta-dot) {
+        width:
+            100%;
+    }
+
+
+}
+
+
+/* ==========================================================
+   14. ACCESSIBILITY
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
+}
