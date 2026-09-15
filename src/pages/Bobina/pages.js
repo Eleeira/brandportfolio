@@ -1,4 +1,5 @@
 export const bobinaPages = [
+
     /* ==========================================================
        02.01 - PROJECT COVER
        ========================================================== */
@@ -22,10 +23,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "Identità editoriale e piattaforma digitale dedicate al cinema d'autore. Un progetto che unisce cultura cinematografica, direzione visiva, esperienza di lettura e strumenti per costruire una pubblicazione indipendente viva e partecipata.",
+                "Bobina Criminale è una rivista digitale dedicata al cinema d'autore. Il progetto mette insieme identità editoriale, esperienza di lettura e strumenti pensati per lettori, autori e redazione.",
 
             en:
-                "An editorial identity and digital platform dedicated to auteur cinema. A project combining film culture, visual direction, reading experience and the tools required to build a living, participatory independent publication.",
+                "Bobina Criminale is a digital magazine dedicated to auteur cinema. The project brings together editorial identity, reading experience and tools designed for readers, authors and the editorial team.",
         },
 
         image:
@@ -56,10 +57,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "La comunicazione cinematografica online oscilla spesso tra portali di informazione molto densi, recensioni standardizzate e contenuti costruiti per il consumo rapido. Bobina Criminale nasce dalla necessità opposta: creare uno spazio riconoscibile, autoriale e indipendente, in cui il cinema venga trattato come cultura prima ancora che come contenuto. La sfida era quindi costruire una pubblicazione digitale con una voce propria, capace di distinguersi senza imitare né una testata tradizionale né un semplice blog personale.",
+                "Online il cinema viene spesso raccontato attraverso portali molto densi, recensioni impostate sempre nello stesso modo o contenuti pensati per essere consumati velocemente. Con Bobina Criminale volevo creare qualcosa di diverso: uno spazio indipendente in cui parlare di cinema prima di tutto come cultura. Il problema era trovare una forma che non sembrasse né una testata tradizionale né un blog personale.",
 
             en:
-                "Online film communication often moves between dense information portals, standardised reviews and content designed for rapid consumption. Bobina Criminale begins from the opposite need: to create a recognisable, independent and author-driven space where cinema is approached as culture before content. The challenge was therefore to build a digital publication with its own voice, without imitating either a traditional magazine or a personal blog.",
+                "Cinema online is often covered through dense information portals, reviews that follow the same structure or content designed to be consumed quickly. With Bobina Criminale, I wanted to create something different: an independent space where cinema could be discussed first of all as culture. The challenge was to find a form that felt neither like a traditional publication nor a personal blog.",
         },
     },
 
@@ -87,10 +88,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "Il progetto prende in prestito dal cinema non la sua iconografia più ovvia, ma il suo linguaggio: ritmo, sequenza, contrasto, attesa e costruzione dello sguardo. Bobina Criminale viene così pensata come una rivista digitale contemporanea, con un carattere colto ma non istituzionale, capace di alternare analisi, opinione e partecipazione. L'identità deve accompagnare la lettura, non competere con ciò che viene raccontato.",
+                "Per costruire il progetto ho cercato di partire dal linguaggio del cinema più che dai suoi simboli più ovvi. Ritmo, sequenza, contrasto, attesa e costruzione dello sguardo diventano così riferimenti anche per l'impaginazione e la navigazione. Bobina Criminale è pensata come una rivista digitale in cui analisi, opinioni e partecipazione possano convivere senza distrarre dalla lettura.",
 
             en:
-                "Rather than borrowing cinema's most obvious iconography, the project draws from its language: rhythm, sequence, contrast, anticipation and the construction of the gaze. Bobina Criminale is conceived as a contemporary digital magazine with a cultured but non-institutional character, able to move between analysis, opinion and participation. The identity is designed to support reading rather than compete with the stories being told.",
+                "To develop the project, I focused on the language of cinema rather than its most obvious symbols. Rhythm, sequence, contrast, anticipation and the construction of the gaze also became references for layout and navigation. Bobina Criminale is designed as a digital magazine where analysis, opinion and participation can coexist without distracting from the reading experience.",
         },
     },
 
@@ -107,8 +108,8 @@ export const bobinaPages = [
         type: "system",
 
         title: {
-            it: "Una voce editoriale riconoscibile",
-            en: "A recognisable editorial voice",
+            it: "Stili e spazi",
+            en: "Styles & Spaces",
         },
 
         subtitle: {
@@ -118,10 +119,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "Il sistema visivo utilizza forti gerarchie tipografiche, ampie superfici scure, toni caldi e un accento bordeaux per costruire un'atmosfera vicina alla rivista cinematografica senza diventare nostalgica. Il contrasto tra immagini, testo e spazio negativo dà ritmo alle pagine e permette agli articoli di mantenere una presenza forte anche all'interno di un'interfaccia complessa.",
+                "Il sistema visivo usa gerarchie tipografiche nette, fondi scuri, toni caldi e un accento bordeaux. Volevo richiamare l'atmosfera di una rivista di cinema senza darle un aspetto nostalgico. Il contrasto tra immagini, testo e spazi vuoti aiuta a scandire le pagine e a dare spazio agli articoli anche nelle sezioni più ricche di contenuti.",
 
             en:
-                "The visual system uses strong typographic hierarchies, dark surfaces, warm tones and a burgundy accent to evoke the atmosphere of a film publication without becoming nostalgic. Contrast between imagery, text and negative space creates rhythm across the pages and gives articles a strong presence even within a complex interface.",
+                "The visual system uses clear typographic hierarchies, dark backgrounds, warm tones and a burgundy accent. I wanted to reference the atmosphere of a film magazine without giving it a nostalgic look. The contrast between images, text and empty space helps structure the pages and gives articles enough room even in sections with more content.",
         },
 
         typography: [
@@ -185,10 +186,11 @@ export const bobinaPages = [
     },
 
 
-
     {
         id: "bobina-logo",
+
         number: "04",
+
         type: "logo",
 
         title: {
@@ -197,13 +199,17 @@ export const bobinaPages = [
         },
 
         body: {
-            it: "Il sistema del marchio e le sue principali varianti.",
-            en: "The brand mark system and its main variations.",
+            it:
+                "Il logo principale e le varianti previste per i diversi utilizzi.",
+
+            en:
+                "The main logo and the variations created for different uses.",
         },
 
         images: [
             {
                 src: "/images/bobina/logo-primary.png",
+
                 alt: {
                     it: "Logo principale Bobina Criminale",
                     en: "Bobina Criminale primary logo",
@@ -212,6 +218,7 @@ export const bobinaPages = [
 
             {
                 src: "/images/bobina/logo-secondary.png",
+
                 alt: {
                     it: "Variante del logo Bobina Criminale",
                     en: "Bobina Criminale logo variation",
@@ -219,6 +226,7 @@ export const bobinaPages = [
             },
         ],
     },
+
 
     /* ==========================================================
        02.05 - EDITORIAL SYSTEM
@@ -243,10 +251,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "Titoli, immagini, firma dell'autore, metadata e corpo del testo sono organizzati come parti di un unico sistema editoriale. La gerarchia permette di orientarsi rapidamente senza sacrificare il ritmo della lettura, mentre ogni articolo mantiene abbastanza spazio per costruire una propria atmosfera attraverso fotografia e contenuto.",
+                "Titolo, immagini, firma dell'autore, metadata e testo seguono una struttura comune. La gerarchia serve a capire subito dove ci si trova e cosa leggere per primo, lasciando comunque spazio alle immagini e al contenuto di ogni articolo.",
 
             en:
-                "Headlines, imagery, author signatures, metadata and body copy are organised as parts of one editorial system. The hierarchy provides orientation without sacrificing reading rhythm, while every article retains enough space to develop its own atmosphere through imagery and content.",
+                "Headlines, images, author signatures, metadata and body copy follow a shared structure. The hierarchy helps readers understand where they are and what to read first, while still leaving room for the images and content of each article.",
         },
 
         image:
@@ -277,10 +285,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "L'identità è stata tradotta in un prodotto digitale reale. Lettori e autori possono avere un profilo, salvare articoli, partecipare ai commenti e interagire con la pubblicazione, mentre la redazione dispone di strumenti dedicati alla scrittura, moderazione e pubblicazione. Il sistema tecnico rimane volutamente invisibile: il suo compito è sostenere l'identità editoriale e rendere possibile una relazione continua tra rivista, autori e lettori.",
+                "Il progetto non si limita alle pagine degli articoli. Lettori e autori possono creare un profilo, salvare contenuti, commentare e partecipare alla pubblicazione. La redazione ha invece strumenti per scrivere, moderare e pubblicare gli articoli. Tutta questa parte tecnica rimane in secondo piano rispetto alla lettura e al lavoro editoriale.",
 
             en:
-                "The identity was translated into a functioning digital product. Readers and authors can create profiles, save articles, participate in discussions and interact with the publication, while the editorial team has dedicated tools for writing, moderation and publishing. The technical system deliberately remains invisible: its purpose is to support the editorial identity and enable an ongoing relationship between magazine, authors and readers.",
+                "The project goes beyond the article pages. Readers and authors can create a profile, save content, comment and take part in the publication. The editorial team has tools for writing, moderation and publishing. This technical layer stays in the background so that reading and editorial work remain the main focus.",
         },
 
         image:
@@ -311,10 +319,10 @@ export const bobinaPages = [
 
         body: {
             it:
-                "Bobina Criminale supera il concetto di sito editoriale statico e diventa un sistema capace di produrre, organizzare e condividere contenuti mantenendo una voce coerente. Identità visiva, esperienza di lettura e infrastruttura digitale partecipano allo stesso progetto: costruire uno spazio riconoscibile in cui parlare di cinema e creare una comunità attorno alla pubblicazione.",
+                "Bobina Criminale è diventata qualcosa di più di un sito in cui pubblicare articoli. Identità visiva, lettura e strumenti digitali fanno parte dello stesso progetto e permettono di gestire i contenuti, coinvolgere chi legge e portare avanti il lavoro della redazione. L'obiettivo rimane semplice: creare uno spazio indipendente in cui parlare di cinema e far crescere una comunità intorno alla rivista.",
 
             en:
-                "Bobina Criminale moves beyond the idea of a static editorial website and becomes a system capable of producing, organising and sharing content while maintaining a coherent voice. Visual identity, reading experience and digital infrastructure belong to the same project: building a recognisable space for discussing cinema and creating a community around the publication.",
+                "Bobina Criminale became more than a website for publishing articles. Visual identity, reading experience and digital tools are part of the same project, supporting content management, reader participation and editorial work. The goal remains simple: to create an independent space for discussing cinema and growing a community around the magazine.",
         },
     },
 ];

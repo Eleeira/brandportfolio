@@ -1280,24 +1280,7 @@ function CoverPage({
                         </p>
                     )}
 
-                    <span
-                        className="
-                            mt-5
-                            block
-                            w-max
-                            border-t
-                            [border-color:var(--cartoon-cinerous)]
-                            pt-[0.55rem]
-                            [font-size:var(--type-meta)]
-                            font-medium
-                            uppercase
-                            leading-[1.4]
-                            tracking-[0.06em]
-                            [color:var(--cartoon-muted)]
-                        "
-                    >
-                        identity · process · outcome
-                    </span>
+
                 </div>
             </div>
         </article>

@@ -22,10 +22,10 @@ export const introPages = [
 
         body: {
             it:
-                "Tre progetti molto diversi tra loro, accomunati dallo stesso punto di partenza: capire cosa serve davvero prima di decidere come deve apparire. Identità, tipografia, fotografia e digitale diventano parti dello stesso progetto.",
+                "Tre progetti diversi, nati da esigenze diverse. In ognuno ho cercato di partire dal problema, capire cosa serviva e solo dopo lavorare su identità, tipografia, fotografia e digitale.",
 
             en:
-                "Three very different projects sharing the same starting point: understanding what is really needed before deciding how it should look. Identity, typography, photography and digital design become parts of the same project.",
+                "Three different projects, each starting from a different need. In each one, I tried to begin with the problem, understand what was needed and only then work on identity, typography, photography and digital design.",
         },
     },
 

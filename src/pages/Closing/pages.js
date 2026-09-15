@@ -42,10 +42,6 @@ export const closingPages = [
 
         type: "contact",
 
-        title: {
-            it: "Contatti",
-            en: "Let's keep in touch.",
-        },
 
         subtitle: {
             it: "Contatti",
