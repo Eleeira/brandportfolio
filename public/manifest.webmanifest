@@ -1,0 +1,38 @@
+{
+    "id": "/",
+    "name": "Stella Catucci — Brand Design Portfolio",
+    "short_name": "Portfolio",
+    "description": "Brand Design Portfolio di Stella Catucci",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#f6efe5",
+    "theme_color": "#f6efe5",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
