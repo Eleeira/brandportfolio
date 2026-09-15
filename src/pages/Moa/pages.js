@@ -1,4 +1,5 @@
 export const moaPages = [
+
     /* ==========================================================
        03.01 - PROJECT COVER
        ========================================================== */
@@ -22,10 +23,10 @@ export const moaPages = [
 
         body: {
             it:
-                "Un prodotto digitale progettato per trasformare attività quotidiane, dati e strumenti personali in un'esperienza coerente, intuitiva e riconoscibile.",
+                "MOA è un progetto personale nato per raccogliere in un unico spazio attività, scadenze, dati e piccoli strumenti di uso quotidiano. L'obiettivo era creare un'interfaccia semplice da consultare, ma con un'identità visiva più personale rispetto ai tradizionali software gestionali.",
 
             en:
-                "A digital product designed to transform everyday activities, data and personal tools into a coherent, intuitive and recognisable experience.",
+                "MOA is a personal project created to bring everyday activities, deadlines, data and small tools into one place. The aim was to design an interface that was easy to use while giving it a more personal visual identity than a traditional management tool.",
         },
 
         image:
@@ -56,10 +57,10 @@ export const moaPages = [
 
         body: {
             it:
-                "MOA nasce dall'esigenza di raccogliere funzioni, dati e attività differenti all'interno di un unico ambiente digitale. La sfida era evitare che la quantità di informazioni producesse un'interfaccia fredda o eccessivamente tecnica, costruendo invece un sistema capace di rendere leggibili anche flussi complessi.",
+                "Man mano che aggiungevo nuove funzioni, MOA rischiava di diventare troppo affollato. Informazioni molto diverse dovevano convivere nella stessa interfaccia senza avere tutte lo stesso peso. Il problema principale è stato quindi capire come organizzarle e renderle facili da trovare senza appesantire la navigazione.",
 
             en:
-                "MOA was created from the need to bring different functions, data and activities into a single digital environment. The challenge was to prevent the amount of information from producing a cold or overly technical interface, instead building a system capable of making complex flows easy to understand.",
+                "As I added new features, MOA risked becoming too crowded. Very different kinds of information had to coexist in the same interface without all having the same visual weight. The main challenge was finding a way to organise them and make them easy to find without making navigation feel heavy.",
         },
     },
 
@@ -87,10 +88,10 @@ export const moaPages = [
 
         body: {
             it:
-                "La risposta progettuale combina struttura funzionale e un linguaggio visivo più morbido, personale e accessibile. Superfici traslucide, forme arrotondate, colori pastello e gerarchie semplici riducono la distanza tra utente e sistema, trasformando un'interfaccia gestionale in un ambiente più familiare e piacevole da utilizzare.",
+                "Ho scelto di allontanarmi dall'aspetto più rigido dei gestionali tradizionali. Forme arrotondate, superfici traslucide e colori pastello rendono l'interfaccia più leggera, mentre una gerarchia semplice aiuta a distinguere dati, azioni e contenuti. L'idea era far percepire MOA più come uno spazio personale che come uno strumento tecnico.",
 
             en:
-                "The design response combines functional structure with a softer, more personal and accessible visual language. Translucent surfaces, rounded forms, pastel colours and clear hierarchies reduce the distance between user and system, turning a management interface into a more familiar and pleasant environment.",
+                "I chose to move away from the rigid look often associated with traditional management tools. Rounded shapes, translucent surfaces and pastel colours make the interface feel lighter, while a simple hierarchy helps separate data, actions and content. The idea was for MOA to feel more like a personal space than a technical tool.",
         },
     },
 
@@ -118,13 +119,27 @@ export const moaPages = [
 
         body: {
             it:
-                "MOA utilizza un sistema cromatico adattivo costruito su rosa, lavanda e tonalità naturali. La modalità chiara mantiene un carattere luminoso e morbido, mentre quella scura traduce gli stessi accenti in una palette berry e plum più profonda, mantenendo continuità visiva tra le due esperienze.",
+                "La palette di MOA parte da rosa, lavanda e tonalità neutre. Nella modalità chiara i colori rimangono luminosi e delicati; nella modalità scura diventano più profondi, con toni berry e plum. Ho mantenuto gli stessi accenti e la stessa struttura per far riconoscere l'identità di MOA in entrambe le versioni.",
 
             en:
-                "MOA uses an adaptive colour system built around pink, lavender and natural tones. The light mode maintains a soft and luminous character, while the dark mode translates the same accents into a deeper berry and plum palette, preserving visual continuity between the two experiences.",
+                "MOA's palette is built around pink, lavender and neutral tones. In light mode the colours remain bright and soft; in dark mode they become deeper, shifting towards berry and plum tones. I kept the same accents and overall structure so that MOA would remain recognisable in both versions.",
         },
 
         typography: [
+            {
+                name: "Gowun Batang",
+
+                family:
+                    '"Gowun Batang", serif',
+
+                role: {
+                    it: "Titoli",
+                    en: "Titles",
+                },
+
+                sample: "Aa",
+            },
+
             {
                 name: "Montserrat",
 
@@ -346,10 +361,10 @@ export const moaPages = [
 
         body: {
             it:
-                "MOA dimostra come un prodotto ricco di funzioni possa mantenere una forte identità senza sacrificare chiarezza e usabilità. Il risultato è un sistema visivo flessibile, riconoscibile e capace di adattarsi a contenuti, strumenti e modalità differenti.",
+                "MOA dimostra come un prodotto ricco di funzioni possa mantenere una forte identità senza sacrificare chiarezza e usabilità. Il risultato è un sistema visivo flessibile e capace di adattarsi a contenuti, strumenti e modalità differenti.",
 
             en:
-                "MOA demonstrates how a feature-rich product can maintain a strong identity without sacrificing clarity and usability. The result is a flexible, recognisable visual system capable of adapting to different content, tools and modes.",
+                "MOA demonstrates how a feature-rich product can maintain a strong identity without sacrificing clarity and usability. The result is a flexible and capable of adapting to different content, tools and modes.",
         },
     },
 ];

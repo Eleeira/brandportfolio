@@ -127,23 +127,27 @@ export const berrettaPages = [
         typography: [
             {
                 name: "Fraunces",
-                family: '"Fraunces", serif',
+
+                family:
+                    '"Fraunces", Georgia, serif',
 
                 role: {
-                    it: "Titoli e comunicazione editoriale",
-                    en: "Headlines and editorial communication",
+                    it: "Titoli e display",
+                    en: "Titles and display",
                 },
 
                 sample: "Aa",
             },
 
             {
-                name: "Montserrat",
-                family: '"Montserrat", sans-serif',
+                name: "Manrope",
+
+                family:
+                    '"Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
 
                 role: {
-                    it: "Testi, navigazione e interfaccia",
-                    en: "Body copy, navigation and interface",
+                    it: "Testi e interfaccia",
+                    en: "Body copy and interface",
                 },
 
                 sample: "Aa",

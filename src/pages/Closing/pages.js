@@ -1,9 +1,7 @@
 export const closingPages = [
 
-
-
     /* ==========================================================
-       04 - END
+       04.01 - END
        ========================================================== */
 
     {
@@ -31,4 +29,50 @@ export const closingPages = [
                 "Thank you for taking the time to look through these pages. They contain different projects, a few experiments, many decisions and, above all, the way I am learning to look at design: not simply as an image, but as a response to a problem. This portfolio shows where I am today, not where I intend to stop. The next pages are still waiting to be built.",
         },
     },
+
+
+    /* ==========================================================
+       04.02 - CONTACT
+       ========================================================== */
+
+    {
+        id: "closing-contact",
+
+        number: "04.02",
+
+        type: "contact",
+
+        title: {
+            it: "Contatti",
+            en: "Let's keep in touch.",
+        },
+
+        subtitle: {
+            it: "Contatti",
+            en: "Contact",
+        },
+
+        body: {
+            it:
+                "Se desiderate vedere altri progetti o conoscere meglio il mio lavoro, mi trovate qui.",
+
+            en:
+                "If you'd like to see more projects or learn more about my work, you can find me here.",
+        },
+
+        contacts: [
+            {
+                label: "Email",
+                value: "info@stellacatucci.com",
+                href: "mailto:info@stellacatucci.com",
+            },
+
+            {
+                label: "Web",
+                value: "stellacatucci.com",
+                href: "https://stellacatucci.com",
+            },
+        ],
+    },
+
 ];

@@ -114,6 +114,8 @@ function getAccent(
 }
 
 
+
+
 /* ==========================================================
    02. TABS
    ========================================================== */
@@ -1996,7 +1998,7 @@ function ClosingPage({
    11. PAGE
    ========================================================== */
 
-function Page({
+export function Page({
     page,
     language,
 }) {
@@ -2075,16 +2077,209 @@ function Page({
             );
 
 
+        case "contact":
+            return (
+                <ContactPage
+                    {...props}
+                />
+            );
+
+
         default:
             return (
                 <TextPage
                     {...props}
                 />
             );
+
+
     }
 }
 
 
+
+/* ==========================================================
+   11.1 CONTACT PAGE
+   ========================================================== */
+
+function ContactPage({
+    page,
+    language,
+    accent,
+}) {
+    const title =
+        page.title?.[language];
+
+    const body =
+        page.body?.[language];
+
+    const contacts =
+        page.contacts ?? [];
+
+
+    return (
+        <article className="flex h-full w-full flex-col">
+            <PageMeta
+                page={page}
+                language={language}
+                accent={accent}
+            />
+
+            <div
+                className="
+                    flex min-h-0 flex-1
+                    flex-col justify-center
+
+                    px-[1.35rem]
+                    pb-[1.6rem]
+                    pt-5
+
+                    min-[701px]:px-9
+                    min-[701px]:pb-[2.35rem]
+                    min-[701px]:pt-[1.65rem]
+                "
+            >
+                <span
+                    className="
+                        mb-[0.85rem]
+                        w-max
+
+                        [font-size:var(--type-meta)]
+                        font-semibold
+                        uppercase
+                        leading-[1.4]
+                        tracking-[0.08em]
+
+                        [color:var(--cartoon-cinerous)]
+                    "
+                >
+                    {language === "it"
+                        ? "contatti"
+                        : "contact"}
+                </span>
+
+                <h2
+                    className="
+                        m-0
+                        max-w-[15ch]
+
+                        [font-family:var(--font-display)]
+                        [font-size:var(--type-page-title-large)]
+
+                        font-normal
+                        leading-[1.05]
+                        tracking-[-0.012em]
+
+                        [color:var(--cartoon-ink)]
+                    "
+                >
+                    {title}
+                </h2>
+
+                {body && (
+                    <p
+                        className="
+                            mt-4
+                            max-w-[30rem]
+
+                            [font-family:var(--font-sans)]
+                            [font-size:var(--type-body)]
+
+                            leading-[1.72]
+
+                            [color:var(--cartoon-muted)]
+                        "
+                    >
+                        {body}
+                    </p>
+                )}
+
+                <div
+                    className="
+                        mt-8
+                        max-w-[30rem]
+                        border-t
+                        [border-color:var(--cartoon-line)]
+                    "
+                >
+                    {contacts.map(
+                        (contact) => (
+                            <a
+                                key={contact.label}
+                                href={contact.href}
+                                target={
+                                    contact.href.startsWith("http")
+                                        ? "_blank"
+                                        : undefined
+                                }
+                                rel={
+                                    contact.href.startsWith("http")
+                                        ? "noreferrer"
+                                        : undefined
+                                }
+                                className="
+                                    group
+
+                                    grid
+                                    grid-cols-[5rem_1fr_auto]
+                                    items-center
+                                    gap-3
+
+                                    border-b
+                                    [border-color:var(--cartoon-line)]
+
+                                    py-4
+
+                                    no-underline
+                                "
+                            >
+                                <span
+                                    className="
+                                        text-[0.65rem]
+                                        font-semibold
+                                        uppercase
+                                        tracking-[0.08em]
+
+                                        [color:var(--cartoon-muted)]
+                                    "
+                                >
+                                    {contact.label}
+                                </span>
+
+                                <span
+                                    className="
+                                        [font-family:var(--font-sans)]
+                                        text-sm
+                                        font-medium
+
+                                        [color:var(--cartoon-ink)]
+                                    "
+                                >
+                                    {contact.value}
+                                </span>
+
+                                <span
+                                    aria-hidden="true"
+                                    className="
+                                        text-sm
+                                        [color:var(--cartoon-cinerous)]
+
+                                        transition-transform
+                                        duration-200
+
+                                        group-hover:translate-x-1
+                                    "
+                                >
+                                    ↗
+                                </span>
+                            </a>
+                        )
+                    )}
+                </div>
+            </div>
+        </article>
+    );
+}
 
 
 
@@ -2377,10 +2572,9 @@ const Notebook =
                     const horizontalReserve =
                         mobile
                             ? 24
-                            : width <
-                                1200
-                                ? 48
-                                : 96;
+                            : width < 1400
+                                ? 128
+                                : 320;
 
 
                     const maxByWidth =
@@ -2647,12 +2841,115 @@ const Notebook =
 
             return (
                 <section
-                    className="relative mx-auto w-full overflow-visible"
+                    className="
+        relative
+        mx-auto
+        mt-16
+        w-full
+        overflow-visible
+
+        min-[701px]:mt-12
+        min-[1400px]:mt-0
+    "
                     style={{
                         maxWidth:
                             `${notebookMaxWidth}px`,
                     }}
                 >
+
+
+
+
+                    {/* PDF SIDE NOTE */}
+
+                    <a
+                        href={`/?print=1&lang=${language}`}
+                        aria-label={
+                            language === "it"
+                                ? "Apri la versione PDF"
+                                : "Open PDF version"
+                        }
+                        className="
+        group
+
+     absolute
+z-30
+
+inline-flex
+
+right-0
+top-[-5.5rem]
+-rotate-[8deg]
+
+min-[701px]:top-[-3.25rem]
+min-[701px]:rotate-0
+
+min-[1400px]:right-auto
+min-[1400px]:left-[calc(100%+1.5rem)]
+min-[1400px]:top-[38%]
+min-[1400px]:-rotate-[20deg]
+
+origin-center
+
+        items-center
+        gap-2
+
+        whitespace-nowrap
+
+        rounded-full
+        border
+        border-[var(--cartoon-pink)]
+
+        bg-[var(--cartoon-soft)]
+
+        px-5
+        py-2.5
+
+        [font-family:'Kalam',cursive]
+        text-[1rem]
+        font-normal
+        leading-none
+
+        !text-[var(--cartoon-ink)]
+
+        shadow-[0_8px_24px_rgba(42,36,31,0.07)]
+
+        transition-all
+        duration-200
+
+        hover:scale-105
+        hover:bg-[var(--cartoon-pink-soft)]
+        hover:shadow-[0_12px_28px_rgba(42,36,31,0.10)]
+
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-[var(--cartoon-pink)]
+        focus-visible:ring-offset-2
+    "
+                    >
+                        <span>
+                            {language === "it"
+                                ? "versione PDF"
+                                : "PDF version"}
+                        </span>
+
+                        <span
+                            aria-hidden="true"
+                            className="
+            [font-family:var(--font-sans)]
+            text-[0.68rem]
+            text-[var(--cartoon-muted)]
+        "
+                        >
+                            ↓
+                        </span>
+                    </a>
+
+
+
+
+
+
                     <Tabs
                         sections={
                             portfolioSections

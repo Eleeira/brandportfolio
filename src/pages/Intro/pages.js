@@ -16,8 +16,8 @@ export const introPages = [
         },
 
         subtitle: {
-            it: "Brand Design · Progetti selezionati",
-            en: "Brand Design · Selected projects",
+            it: "Brand Design · Portfolio di Adina Georgiana Catucci",
+            en: "Brand Design · Adina Georgiana Catucci Portfolio",
         },
 
         body: {
@@ -32,13 +32,40 @@ export const introPages = [
 
 
     /* ==========================================================
-       00.02 - BACKGROUND
+       00.02 - ABOUT
        ========================================================== */
+
+    {
+        id: "intro-profile",
+
+        number: "00.02",
+
+        type: "text",
+
+        title: {
+            it: "Il mio nome è Adina, ma tutti mi chiamano Stella.",
+            en: "My name is Adina, but everyone calls me Stella.",
+        },
+
+        subtitle: {
+            it: "Fotografia · Web · Ricerca visiva",
+            en: "Photography · Web · Visual research",
+        },
+
+        body: {
+            it:
+                "Il mio percorso nasce dalla fotografia e si è sviluppato negli anni attraverso il web e il lavoro con le immagini. Mi interessa osservare come colori, tipografia, composizione e linguaggio visivo possano cambiare il modo in cui percepiamo un progetto. Questo portfolio raccoglie alcuni dei lavori attraverso cui ho iniziato ad avvicinarmi al Brand Design e a esplorare un ambito che vorrei approfondire attraverso il percorso accademico.",
+
+            en:
+                "My background began with photography and gradually developed through web design and working with images. I am interested in observing how colour, typography, composition and visual language can change the way we perceive a project. This portfolio brings together some of the work through which I began approaching Brand Design and exploring a field I would like to develop further through academic study.",
+        },
+    },
+
 
     {
         id: "intro-about",
 
-        number: "00.02",
+        number: "00.03",
 
         type: "text",
 
@@ -54,42 +81,10 @@ export const introPages = [
 
         body: {
             it:
-                "Arrivo al design dalla fotografia. Per anni ho lavorato soprattutto con immagini, composizione e linguaggio visivo; il web mi ha portata a ragionare anche su struttura, funzione e relazione tra gli elementi. A un certo punto non mi bastava più progettare una buona interfaccia: volevo capire cosa rendesse un progetto riconoscibile prima ancora di arrivare allo schermo. Da qui è nato il mio interesse per il Brand Design.",
+                "Arrivo al design dalla fotografia. Per anni ho lavorato soprattutto con immagini, composizione e linguaggio visivo; il web mi ha portata a ragionare anche su struttura, funzione e relazione tra gli elementi. Con il tempo ho iniziato a chiedermi cosa rendesse un progetto riconoscibile prima ancora di arrivare allo schermo: non soltanto come apparisse, ma quali scelte ne costruissero il carattere. Da qui è nato il mio interesse per il Brand Design.",
 
             en:
-                "I came to design through photography. For years I worked mainly with images, composition and visual language; web design later introduced me to structure, function and the relationship between elements. At some point, designing a good interface was no longer enough: I wanted to understand what makes a project recognisable before it even reaches the screen. That is where my interest in Brand Design began.",
-        },
-    },
-
-
-
-    /* ==========================================================
-       00.03 - DESIGN APPROACH
-       ========================================================== */
-
-    {
-        id: "intro-approach",
-
-        number: "00.03",
-
-        type: "statement",
-
-        title: {
-            it: "Prima capire. Poi progettare.",
-            en: "Understand first. Design second.",
-        },
-
-        subtitle: {
-            it: "Problema · Scelte · Soluzione",
-            en: "Problem · Decisions · Solution",
-        },
-
-        body: {
-            it:
-                "Cerco di non partire mai dall'estetica. Prima guardo il contesto, il pubblico e ciò che il progetto deve risolvere. Solo dopo arrivano colore, tipografia, immagini, composizione e interfaccia. Mi interessa che ogni scelta abbia un motivo e che l'identità funzioni anche quando cambia il formato, il contenuto o il mezzo.",
-
-            en:
-                "I try not to begin with aesthetics. I first look at the context, the audience and what the project actually needs to solve. Colour, typography, imagery, composition and interface come afterwards. I want each decision to have a reason, and the identity to remain recognisable even when the format, content or medium changes.",
+                "I came to design through photography. For years I worked mainly with images, composition and visual language; web design later introduced me to structure, function and the relationship between elements. Over time, I began wondering what makes a project recognisable before it even reaches the screen: not only how it looks, but which choices shape its character. This is where my interest in Brand Design began.",
         },
     },
 

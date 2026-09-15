@@ -126,24 +126,42 @@ export const bobinaPages = [
 
         typography: [
             {
-                name: "Nome font display Bobina",
-                family: '"Nome Font", serif',
+                name: "Kalam",
+
+                family:
+                    '"Kalam", cursive',
 
                 role: {
-                    it: "Titoli editoriali",
-                    en: "Editorial headlines",
+                    it: "Titoli e display",
+                    en: "Titles and display",
                 },
 
                 sample: "Aa",
             },
 
             {
-                name: "Nome font testo Bobina",
-                family: '"Nome Font Testo", sans-serif',
+                name: "Alegreya Sans",
+
+                family:
+                    '"Alegreya Sans", Arial, sans-serif',
 
                 role: {
-                    it: "Articoli e interfaccia",
-                    en: "Articles and interface",
+                    it: "Testi e interfaccia",
+                    en: "Body copy and interface",
+                },
+
+                sample: "Aa",
+            },
+
+            {
+                name: "La Belle Aurore",
+
+                family:
+                    '"La Belle Aurore", cursive',
+
+                role: {
+                    it: "Accenti manoscritti",
+                    en: "Handwritten accents",
                 },
 
                 sample: "Aa",
