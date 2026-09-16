@@ -270,6 +270,18 @@ export const moaPages = [
 
             {
                 src:
+                    "/images/moa/smartphones.png",
+
+                alt: {
+                    it:
+                        "Area attività di MOA",
+                    en:
+                        "MOA tasks interface",
+                },
+            },
+
+            {
+                src:
                     "/images/moa/ui-moa-desktop.png",
 
                 alt: {
@@ -291,6 +303,7 @@ export const moaPages = [
                         "MOA tasks interface",
                 },
             },
+
         ],
     },
 

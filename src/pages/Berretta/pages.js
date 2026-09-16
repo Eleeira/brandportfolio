@@ -16,16 +16,16 @@ export const berrettaPages = [
         },
 
         subtitle: {
-            it: "Brand identity · Web design · Hospitality",
-            en: "Brand identity · Web design · Hospitality",
+            it: "Identità visiva · Web design · Hospitality",
+            en: "Visual identity · Web design · Hospitality",
         },
 
         body: {
             it:
-                "Identità visiva e presenza digitale per una casa vacanze indipendente a Bologna. Il progetto costruisce un'immagine contemporanea, elegante e riconoscibile, capace di valorizzare l'esperienza dell'abitare prima ancora del soggiorno.",
+                "Identità visiva e sito web per Berretta Rossa, un appartamento a Bologna. Il progetto riunisce immagini, informazioni e contatti in una presenza digitale semplice e riconoscibile.",
 
             en:
-                "Visual identity and digital presence for an independent holiday apartment in Bologna. The project builds a contemporary, elegant and recognisable image designed to communicate the experience of living in the space before the stay even begins.",
+                "Visual identity and website for Berretta Rossa, an apartment in Bologna. The project brings together imagery, information and contact details in a simple, recognisable digital presence.",
         },
 
         image:
@@ -45,27 +45,27 @@ export const berrettaPages = [
         type: "text",
 
         title: {
-            it: "Il problema",
-            en: "The challenge",
+            it: "Il punto di partenza",
+            en: "The starting point",
         },
 
         subtitle: {
-            it: "Contesto · Differenziazione · Percezione",
-            en: "Context · Differentiation · Perception",
+            it: "Appartamento · Bologna · Comunicazione",
+            en: "Apartment · Bologna · Communication",
         },
 
         body: {
             it:
-                "Nel mercato degli affitti brevi molte strutture comunicano quasi esclusivamente attraverso fotografie, piattaforme di prenotazione e linguaggi visivi molto simili tra loro. Berretta Rossa aveva bisogno di emergere come luogo con una propria identità, senza ricorrere né all'estetica impersonale delle piattaforme né ai codici eccessivamente costruiti dell'hotellerie di lusso. La sfida era aumentare la percezione di qualità e affidabilità mantenendo il carattere domestico, indipendente e autentico dell'appartamento.",
+                "Berretta Rossa aveva bisogno di uno spazio online proprio, capace di presentare l'appartamento senza dipendere solo dalle piattaforme di prenotazione. Il sito doveva mostrare gli ambienti, raccontare il legame con Bologna e rendere semplici le informazioni utili e il contatto.",
 
             en:
-                "In the short-term rental market, many properties communicate almost exclusively through photography, booking platforms and highly similar visual languages. Berretta Rossa needed to emerge as a place with its own identity, avoiding both the impersonal aesthetic of booking platforms and the overly constructed codes of luxury hospitality. The challenge was to increase the perception of quality and trust while preserving the apartment's domestic, independent and authentic character.",
+                "Berretta Rossa needed its own online space, able to present the apartment without relying only on booking platforms. The website had to show the interiors, introduce its connection with Bologna and make practical information and contact details easy to find.",
         },
     },
 
 
     /* ==========================================================
-       03 - STRATEGIC RESPONSE
+       03 - DESIGN RESPONSE
        ========================================================== */
 
     {
@@ -76,21 +76,21 @@ export const berrettaPages = [
         type: "text",
 
         title: {
-            it: "La risposta progettuale",
-            en: "The design response",
+            it: "La direzione",
+            en: "The direction",
         },
 
         subtitle: {
-            it: "Posizionamento · Direzione creativa · Esperienza",
-            en: "Positioning · Art direction · Experience",
+            it: "Identità · Fotografia · Sito web",
+            en: "Identity · Photography · Website",
         },
 
         body: {
             it:
-                "La soluzione è stata costruire Berretta Rossa come una piccola realtà di hospitality dal carattere editoriale: discreta, calda e sofisticata. L'identità non cerca di competere con un hotel, ma trasforma semplicità, comfort e indipendenza in elementi di valore. Spazi ampi, tipografia espressiva, fotografia immersiva e una palette contenuta costruiscono un linguaggio vicino al quiet luxury, lasciando all'appartamento e alla città il ruolo di protagonisti.",
+                "Il progetto parte dall'appartamento e lascia che siano gli spazi e le fotografie a guidare la comunicazione. Tipografia, colori e impaginazione costruiscono una cornice coerente senza trasformare Berretta Rossa in qualcosa che non è: un appartamento indipendente a Bologna.",
 
             en:
-                "The solution was to position Berretta Rossa as a small hospitality brand with an editorial character: understated, warm and sophisticated. The identity does not attempt to imitate a hotel; instead, it turns simplicity, comfort and independence into elements of value. Generous spacing, expressive typography, immersive photography and a restrained palette create a visual language close to quiet luxury, allowing the apartment and the city to remain the protagonists.",
+                "The project starts from the apartment itself, allowing its spaces and photographs to lead the communication. Typography, colour and layout provide a consistent framework without turning Berretta Rossa into something it is not: an independent apartment in Bologna.",
         },
     },
 
@@ -107,8 +107,8 @@ export const berrettaPages = [
         type: "system",
 
         title: {
-            it: "Un lusso più silenzioso",
-            en: "A quieter kind of luxury",
+            it: "Tipografia",
+            en: "Typography",
         },
 
         subtitle: {
@@ -118,10 +118,10 @@ export const berrettaPages = [
 
         body: {
             it:
-                "Il sistema visivo riduce gli elementi decorativi al minimo e affida la personalità alla gerarchia tipografica, al ritmo degli spazi e alle immagini. Il contrasto tra carattere display e sans serif permette di unire una componente editoriale più distintiva alla chiarezza necessaria per navigazione, informazioni e prenotazione.",
+                "Il sistema visivo usa pochi elementi. Fraunces caratterizza i titoli, Manrope mantiene leggibili testi e interfaccia, mentre una palette neutra accompagna le fotografie senza sovrastarle. Le stesse regole vengono applicate in tutto il sito.",
 
             en:
-                "The visual system reduces decorative elements to a minimum and gives personality to typographic hierarchy, spatial rhythm and imagery. The contrast between display and sans-serif typefaces combines a more distinctive editorial character with the clarity required for navigation, information and booking.",
+                "The visual system uses a limited set of elements. Fraunces gives character to headings, Manrope keeps text and interface elements readable, while a neutral palette supports the photography without competing with it. The same rules are used throughout the website.",
         },
 
         typography: [
@@ -175,9 +175,15 @@ export const berrettaPages = [
     },
 
 
+    /* ==========================================================
+       LOGO
+       ========================================================== */
+
     {
         id: "berretta-logo",
+
         number: "04",
+
         type: "logo",
 
         title: {
@@ -186,20 +192,25 @@ export const berrettaPages = [
         },
 
         body: {
-            it: "Il sistema del marchio e le sue principali varianti.",
-            en: "The brand mark system and its main variations.",
+            it:
+                "Il marchio di Berretta Rossa e la sua applicazione principale.",
+
+            en:
+                "The Berretta Rossa mark and its primary application.",
         },
 
         images: [
             {
-                src: "/images/berretta/logo-primary.png",
+                src:
+                    "/images/berretta/logo-primary.png",
+
                 alt: {
-                    it: "Logo principale Berretta Rossa",
-                    en: "Berretta Rossa primary logo",
+                    it:
+                        "Logo principale Berretta Rossa",
+                    en:
+                        "Berretta Rossa primary logo",
                 },
             },
-
-
         ],
     },
 
@@ -216,25 +227,48 @@ export const berrettaPages = [
         type: "image",
 
         title: {
-            it: "Dall'identità all'esperienza",
-            en: "From identity to experience",
+            it: "Il sito di Berretta Rossa",
+            en: "The Berretta Rossa website",
         },
 
         subtitle: {
-            it: "Website · Art direction · Responsive",
-            en: "Website · Art direction · Responsive",
+            it: "Web design · Responsive · Contenuti",
+            en: "Web design · Responsive · Content",
         },
 
         body: {
             it:
-                "Il sito diventa il principale spazio narrativo del brand. La navigazione è intenzionalmente essenziale: grandi immagini, testi brevi e una gerarchia chiara accompagnano dalla scoperta dell'appartamento alla richiesta di soggiorno. L'interfaccia evita il linguaggio commerciale aggressivo tipico delle piattaforme di prenotazione e privilegia una fruizione più lenta, immersiva e coerente con il posizionamento.",
+                "Berrettarossa.it presenta l'appartamento attraverso fotografie, testi brevi e una navigazione essenziale. Le pagine dedicate all'appartamento, a Bologna e ai contatti permettono di trovare rapidamente ciò che serve senza interrompere il racconto visivo.",
 
             en:
-                "The website becomes the brand's main narrative space. Navigation is intentionally restrained: large imagery, concise copy and a clear hierarchy guide users from discovering the apartment to requesting a stay. The interface avoids the aggressive commercial language typical of booking platforms, favouring a slower, more immersive experience consistent with the positioning.",
+                "Berrettarossa.it presents the apartment through photography, concise copy and straightforward navigation. Pages dedicated to the apartment, Bologna and contact information make practical details easy to find without interrupting the visual narrative.",
         },
 
-        image:
-            "/images/berretta/website.png",
+        images: [
+            {
+                src:
+                    "/images/berretta/website.png",
+
+                alt: {
+                    it:
+                        "Sito web di Berretta Rossa",
+                    en:
+                        "Berretta Rossa website",
+                },
+            },
+
+            {
+                src:
+                    "/images/berretta/website2.png",
+
+                alt: {
+                    it:
+                        "Sito web di Berretta Rossa",
+                    en:
+                        "Berretta Rossa website",
+                },
+            },
+        ],
     },
 
 
@@ -250,21 +284,21 @@ export const berrettaPages = [
         type: "image",
 
         title: {
-            it: "Una presenza coerente",
-            en: "A consistent presence",
+            it: "Un sistema riconoscibile",
+            en: "A recognisable system",
         },
 
         subtitle: {
-            it: "Immagine · Dettagli · Touchpoint",
-            en: "Imagery · Details · Touchpoints",
+            it: "Logo · Tipografia · Immagini",
+            en: "Logo · Typography · Imagery",
         },
 
         body: {
             it:
-                "L'identità è progettata come un sistema, non come un singolo logo. Tipografia, fotografia, composizione e tono di voce mantengono la stessa atmosfera nei diversi punti di contatto, permettendo a Berretta Rossa di essere riconoscibile anche quando il marchio non occupa il centro della comunicazione.",
+                "Logo, caratteri, palette e fotografia seguono le stesse regole nei diversi elementi del progetto. L'identità rimane riconoscibile senza dover utilizzare il marchio in ogni schermata o composizione.",
 
             en:
-                "The identity is designed as a system rather than a single logo. Typography, photography, composition and tone of voice maintain the same atmosphere across different touchpoints, allowing Berretta Rossa to remain recognisable even when the logo is not the focus of the communication.",
+                "Logo, type, colour and photography follow the same rules across the project. The identity remains recognisable without requiring the logo to appear in every screen or composition.",
         },
 
         image:
@@ -284,21 +318,21 @@ export const berrettaPages = [
         type: "closing",
 
         title: {
-            it: "Da appartamento a identità",
-            en: "From apartment to identity",
+            it: "Un posto anche online",
+            en: "A place online, too",
         },
 
         subtitle: {
-            it: "Sintesi · Coerenza · Posizionamento",
-            en: "Synthesis · Consistency · Positioning",
+            it: "Identità · Sito web · Bologna",
+            en: "Identity · Website · Bologna",
         },
 
         body: {
             it:
-                "Il risultato è un'identità che non modifica ciò che Berretta Rossa è, ma ne rende percepibile il valore. Un semplice appartamento destinato all'ospitalità acquista una voce, un'atmosfera e un sistema visivo coerente. Il progetto dimostra come il brand design possa trasformare una presenza funzionale in un'esperienza riconoscibile, costruendo valore attraverso percezione, coerenza e direzione creativa.",
+                "Il risultato è un'identità e un sito costruiti intorno a Berretta Rossa, ai suoi spazi e alla sua città. Berrettarossa.it dà all'appartamento un punto di riferimento online autonomo.",
 
             en:
-                "The result is an identity that does not change what Berretta Rossa is, but makes its value perceptible. A simple hospitality apartment gains a voice, an atmosphere and a coherent visual system. The project demonstrates how brand design can transform a functional presence into a recognisable experience, building value through perception, consistency and creative direction.",
+                "The result is an identity and website built around Berretta Rossa, its spaces and its city. Berrettarossa.it gives the apartment an independent online space.",
         },
     },
 ];

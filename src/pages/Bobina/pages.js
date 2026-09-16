@@ -291,8 +291,46 @@ export const bobinaPages = [
                 "The project goes beyond the article pages. Readers and authors can create a profile, save content, comment and take part in the publication. The editorial team has tools for writing, moderation and publishing. This technical layer stays in the background so that reading and editorial work remain the main focus.",
         },
 
-        image:
-            "/images/bobina/interface.png",
+        images: [
+            {
+                src:
+                    "/images/bobina/smartphone.png",
+
+                alt: {
+                    it:
+                        "MOA login mobile",
+                    en:
+                        "MOA login mobile",
+                },
+            },
+
+            {
+                src:
+                    "/images/bobina/light.png",
+
+                alt: {
+                    it:
+                        "Area attività di MOA",
+                    en:
+                        "MOA tasks interface",
+                },
+            },
+
+            {
+                src:
+                    "/images/bobina/interface.png",
+
+                alt: {
+                    it:
+                        "MOA desktop interfaccia",
+                    en:
+                        "MOA desktop interface",
+                },
+            },
+
+
+
+        ],
     },
 
 

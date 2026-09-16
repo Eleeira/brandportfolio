@@ -7,6 +7,7 @@ import {
     useRef,
     useState,
 } from "react";
+import { createPortal } from "react-dom";
 
 import HTMLFlipBook from "react-pageflip";
 
@@ -492,204 +493,939 @@ function CartoonImage({
    04.00 IMAGE GALLERY
    ========================================================== */
 
-
-
 function ImageGallery({
     images = [],
     title,
     language = "it",
 }) {
+    const [
+        selectedIndex,
+        setSelectedIndex,
+    ] = useState(null);
+
+    const selectedImage =
+        selectedIndex !== null
+            ? images[selectedIndex]
+            : null;
+
+    const closeLightbox =
+        useCallback(() => {
+            setSelectedIndex(null);
+        }, []);
+
+    const showPrevious =
+        useCallback(() => {
+            setSelectedIndex(
+                (current) => {
+                    if (current === null) {
+                        return null;
+                    }
+
+                    return (
+                        current -
+                        1 +
+                        images.length
+                    ) % images.length;
+                },
+            );
+        }, [images.length]);
+
+    const showNext =
+        useCallback(() => {
+            setSelectedIndex(
+                (current) => {
+                    if (current === null) {
+                        return null;
+                    }
+
+                    return (
+                        current +
+                        1
+                    ) % images.length;
+                },
+            );
+        }, [images.length]);
+
+    useEffect(() => {
+        if (selectedIndex === null) {
+            return undefined;
+        }
+
+        const previousOverflow =
+            document.body.style.overflow;
+
+        document.body.style.overflow =
+            "hidden";
+
+        const handleKeyDown = (
+            event,
+        ) => {
+            if (
+                event.key ===
+                "Escape"
+            ) {
+                closeLightbox();
+            }
+
+            if (
+                event.key ===
+                "ArrowLeft" &&
+                images.length > 1
+            ) {
+                showPrevious();
+            }
+
+            if (
+                event.key ===
+                "ArrowRight" &&
+                images.length > 1
+            ) {
+                showNext();
+            }
+        };
+
+        window.addEventListener(
+            "keydown",
+            handleKeyDown,
+        );
+
+        return () => {
+            document.body.style.overflow =
+                previousOverflow;
+
+            window.removeEventListener(
+                "keydown",
+                handleKeyDown,
+            );
+        };
+    }, [
+        selectedIndex,
+        images.length,
+        closeLightbox,
+        showPrevious,
+        showNext,
+    ]);
+
     if (!images.length) {
         return null;
     }
 
-    /*
-     * 1 immagine  → normale
-     * 2 immagini → 2 colonne
-     * 3 immagini → prima grande + 2 piccole
-     * 4+         → griglia 2x2
-     */
+    const getAlt = (image) =>
+        image.alt?.[language] ??
+        title ??
+        "";
 
-    if (
-        images.length === 1
-    ) {
+    const stopBookEvent = (
+        event,
+    ) => {
+        event.stopPropagation();
+    };
+
+    const imageFrameClass = `
+        group
+        relative
+        min-h-0
+        overflow-hidden
+
+        rounded-[var(--cartoon-radius-md)]
+
+        border
+        [border-color:var(--cartoon-line)]
+
+        bg-[var(--cartoon-soft)]
+
+        p-[0.3rem]
+
+        shadow-[0_12px_30px_rgba(42,36,31,0.055)]
+    `;
+
+    const renderZoomButton = (
+        image,
+        index,
+    ) => (
+        <button
+            type="button"
+            aria-label={
+                language === "it"
+                    ? `Ingrandisci ${getAlt(
+                        image,
+                    ) ||
+                    `immagine ${index + 1
+                    }`
+                    }`
+                    : `Enlarge ${getAlt(
+                        image,
+                    ) ||
+                    `image ${index + 1
+                    }`
+                    }`
+            }
+            onClick={(event) => {
+                event.stopPropagation();
+
+                setSelectedIndex(
+                    index,
+                );
+            }}
+            onPointerDown={
+                stopBookEvent
+            }
+            onMouseDown={
+                stopBookEvent
+            }
+            onTouchStart={
+                stopBookEvent
+            }
+            className="
+                absolute inset-0
+                z-10
+
+                cursor-zoom-in
+
+                border-0
+                bg-transparent
+                p-0
+
+                focus-visible:outline-none
+
+                focus-visible:ring-2
+                focus-visible:ring-inset
+                focus-visible:ring-[var(--cartoon-cinerous)]
+            "
+        >
+            <span className="sr-only">
+                {language === "it"
+                    ? "Apri immagine"
+                    : "Open image"}
+            </span>
+
+            <span
+                aria-hidden="true"
+                className="
+                    pointer-events-none
+
+                    absolute
+                    bottom-3
+                    right-3
+
+                    flex
+                    size-8
+                    items-center
+                    justify-center
+
+                    rounded-full
+
+                    border
+                    border-white/45
+
+                    bg-black/30
+
+                    text-sm
+                    text-white
+
+                    opacity-0
+
+                    shadow-sm
+
+                    backdrop-blur-md
+
+                    transition
+                    duration-200
+
+                    group-hover:opacity-100
+                    group-focus-within:opacity-100
+                "
+            >
+                ↗
+            </span>
+        </button>
+    );
+
+    let galleryContent;
+
+    /* ==========================================================
+       1 IMAGE
+       ========================================================== */
+
+    if (images.length === 1) {
         const image =
             images[0];
 
-        return (
-            <CartoonImage
-                src={
-                    image.src
-                }
-                title={
-                    image.alt?.[
-                    language
-                    ] ??
-                    title
-                }
-            />
+        galleryContent = (
+            <figure
+                className={`
+                    ${imageFrameClass}
+                    w-full
+                `}
+            >
+                <img
+                    src={image.src}
+                    alt={getAlt(
+                        image,
+                    )}
+                    className="
+                        aspect-[16/10]
+                        w-full
+
+                        rounded-[2px]
+
+                        object-cover
+
+                        transition-transform
+                        duration-300
+                        ease-out
+
+                        group-hover:scale-[1.015]
+                    "
+                />
+
+                {renderZoomButton(
+                    image,
+                    0,
+                )}
+            </figure>
         );
     }
 
-    if (
+    /* ==========================================================
+       3 IMAGES
+       ========================================================== */
+
+    else if (
         images.length === 3
     ) {
-        return (
+        galleryContent = (
             <div
                 className="
-                    grid min-h-0 flex-1
+                    grid
+                    min-h-0
+                    flex-1
+
                     grid-cols-2
                     grid-rows-2
+
                     gap-2.5
+
                     min-[701px]:gap-3
                 "
             >
-                {/* HERO IMAGE */}
-
                 <figure
-                    className="
-                        relative
+                    className={`
+                        ${imageFrameClass}
                         row-span-2
-                        min-h-0
-                        overflow-hidden
-                        rounded-[var(--cartoon-radius-md)]
-                        border
-                        [border-color:var(--cartoon-line)]
-                        bg-[var(--cartoon-soft)]
-                        p-[0.3rem]
-                        shadow-[0_12px_30px_rgba(42,36,31,0.055)]
-                    "
+                    `}
                 >
                     <img
                         src={
                             images[0]
                                 .src
                         }
-                        alt={
-                            images[0]
-                                .alt?.[
-                            language
-                            ] ??
-                            title ??
-                            ""
-                        }
+                        alt={getAlt(
+                            images[0],
+                        )}
                         className="
                             h-full
                             w-full
+
                             rounded-[2px]
+
                             object-cover
+
+                            transition-transform
+                            duration-300
+                            ease-out
+
+                            group-hover:scale-[1.015]
                         "
                     />
+
+                    {renderZoomButton(
+                        images[0],
+                        0,
+                    )}
                 </figure>
 
-                {/* SECONDARY IMAGES */}
-
                 {images
-                    .slice(
-                        1,
-                        3
-                    )
+                    .slice(1, 3)
                     .map(
                         (
                             image,
-                            index
+                            index,
+                        ) => {
+                            const realIndex =
+                                index +
+                                1;
+
+                            return (
+                                <figure
+                                    key={`${image.src}-${realIndex}`}
+                                    className={
+                                        imageFrameClass
+                                    }
+                                >
+                                    <img
+                                        src={
+                                            image.src
+                                        }
+                                        alt={getAlt(
+                                            image,
+                                        )}
+                                        className="
+                                            h-full
+                                            w-full
+
+                                            rounded-[2px]
+
+                                            object-cover
+
+                                            transition-transform
+                                            duration-300
+                                            ease-out
+
+                                            group-hover:scale-[1.015]
+                                        "
+                                    />
+
+                                    {renderZoomButton(
+                                        image,
+                                        realIndex,
+                                    )}
+                                </figure>
+                            );
+                        },
+                    )}
+            </div>
+        );
+    }
+
+    /* ==========================================================
+       2 / 4+ IMAGES
+       ========================================================== */
+
+    else {
+        galleryContent = (
+            <div
+                className="
+                    grid
+                    min-h-0
+                    flex-1
+
+                    grid-cols-2
+
+                    gap-2.5
+
+                    min-[701px]:gap-3
+                "
+            >
+                {images
+                    .slice(0, 4)
+                    .map(
+                        (
+                            image,
+                            index,
                         ) => (
                             <figure
                                 key={`${image.src}-${index}`}
-                                className="
-                                    relative
-                                    min-h-0
-                                    overflow-hidden
-                                    rounded-[var(--cartoon-radius-md)]
-                                    border
-                                    [border-color:var(--cartoon-line)]
-                                    bg-[var(--cartoon-soft)]
-                                    p-[0.3rem]
-                                    shadow-[0_12px_30px_rgba(42,36,31,0.055)]
-                                "
+                                className={
+                                    imageFrameClass
+                                }
                             >
                                 <img
                                     src={
                                         image.src
                                     }
-                                    alt={
-                                        image
-                                            .alt?.[
-                                        language
-                                        ] ??
-                                        title ??
-                                        ""
-                                    }
+                                    alt={getAlt(
+                                        image,
+                                    )}
                                     className="
                                         h-full
                                         w-full
+
                                         rounded-[2px]
+
                                         object-cover
+
+                                        transition-transform
+                                        duration-300
+                                        ease-out
+
+                                        group-hover:scale-[1.015]
                                     "
                                 />
+
+                                {renderZoomButton(
+                                    image,
+                                    index,
+                                )}
                             </figure>
-                        )
+                        ),
                     )}
             </div>
         );
     }
 
     return (
-        <div
-            className="
-                grid min-h-0 flex-1
-                grid-cols-2
-                gap-2.5
-                min-[701px]:gap-3
-            "
-        >
-            {images
-                .slice(
-                    0,
-                    4
-                )
-                .map(
-                    (
-                        image,
-                        index
-                    ) => (
-                        <figure
-                            key={`${image.src}-${index}`}
+        <>
+            {galleryContent}
+
+            {selectedImage &&
+                typeof document !==
+                "undefined" &&
+                createPortal(
+                    <div
+                        className="
+                            fixed inset-0
+                            z-[9999]
+
+                            flex
+                            items-center
+                            justify-center
+
+                            bg-[rgba(42,36,31,0.28)]
+
+                            p-4
+
+                            backdrop-blur-[10px]
+
+                            min-[701px]:p-8
+                        "
+                        onClick={
+                            closeLightbox
+                        }
+                        onPointerDown={
+                            stopBookEvent
+                        }
+                        onMouseDown={
+                            stopBookEvent
+                        }
+                        onTouchStart={
+                            stopBookEvent
+                        }
+                    >
+                        <div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label={
+                                language ===
+                                    "it"
+                                    ? "Anteprima immagine"
+                                    : "Image preview"
+                            }
+                            onClick={
+                                stopBookEvent
+                            }
+                            onPointerDown={
+                                stopBookEvent
+                            }
                             className="
                                 relative
-                                min-h-0
+
+                                flex
+
+                                max-h-[88vh]
+                                w-full
+                                max-w-[980px]
+
+                                flex-col
+
                                 overflow-hidden
+
                                 rounded-[var(--cartoon-radius-md)]
+
                                 border
-                                [border-color:var(--cartoon-line)]
+                                border-white/20
+
                                 bg-[var(--cartoon-soft)]
-                                p-[0.3rem]
-                                shadow-[0_12px_30px_rgba(42,36,31,0.055)]
+
+                                shadow-[0_28px_90px_rgba(42,36,31,0.28)]
                             "
                         >
-                            <img
-                                src={
-                                    image.src
-                                }
-                                alt={
-                                    image
-                                        .alt?.[
-                                    language
-                                    ] ??
-                                    title ??
-                                    ""
-                                }
+                            {/* HEADER */}
+
+                            <div
                                 className="
-                                    h-full
-                                    w-full
-                                    rounded-[2px]
-                                    object-cover
+                                    flex
+                                    h-12
+                                    shrink-0
+
+                                    items-center
+                                    justify-between
+
+                                    border-b
+                                    [border-color:var(--cartoon-line)]
+
+                                    bg-[var(--cartoon-soft)]
+
+                                    px-3
+
+                                    min-[701px]:h-14
+                                    min-[701px]:px-4
                                 "
-                            />
-                        </figure>
-                    )
+                            >
+                                <div
+                                    className="
+                                        flex
+                                        min-w-0
+                                        items-center
+                                        gap-3
+                                    "
+                                >
+                                    {/* COUNTER */}
+
+                                    <span
+                                        className="
+                                            shrink-0
+
+                                            [font-family:var(--font-sans)]
+
+                                            text-[0.65rem]
+                                            font-semibold
+
+                                            tracking-[0.08em]
+
+                                            [color:var(--cartoon-muted)]
+                                        "
+                                    >
+                                        {String(
+                                            selectedIndex +
+                                            1,
+                                        ).padStart(
+                                            2,
+                                            "0",
+                                        )}
+
+                                        {" / "}
+
+                                        {String(
+                                            images.length,
+                                        ).padStart(
+                                            2,
+                                            "0",
+                                        )}
+                                    </span>
+
+                                    {/* DIVIDER */}
+
+                                    <span
+                                        aria-hidden="true"
+                                        className="
+                                            hidden
+                                            h-3
+                                            w-px
+
+                                            bg-[var(--cartoon-line)]
+
+                                            min-[480px]:block
+                                        "
+                                    />
+
+                                    {/* IMAGE TITLE */}
+
+                                    <span
+                                        className="
+                                            hidden
+                                            min-w-0
+                                            max-w-[22rem]
+
+                                            overflow-hidden
+
+                                            text-ellipsis
+                                            whitespace-nowrap
+
+                                            text-[0.72rem]
+                                            font-medium
+
+                                            [color:var(--cartoon-ink)]
+
+                                            min-[480px]:block
+                                        "
+                                    >
+                                        {getAlt(
+                                            selectedImage,
+                                        )}
+                                    </span>
+                                </div>
+
+                                {/* CLOSE */}
+
+                                <button
+                                    type="button"
+                                    onClick={(
+                                        event,
+                                    ) => {
+                                        event.stopPropagation();
+
+                                        closeLightbox();
+                                    }}
+                                    aria-label={
+                                        language ===
+                                            "it"
+                                            ? "Chiudi anteprima"
+                                            : "Close preview"
+                                    }
+                                    className="
+                                        group
+
+                                        flex
+                                        size-9
+                                        shrink-0
+
+                                        items-center
+                                        justify-center
+
+                                        rounded-full
+
+                                        border
+                                        border-[rgba(42,36,31,0.18)]
+
+                                        bg-white
+
+                                        text-[var(--cartoon-ink)]
+
+                                        shadow-[0_4px_14px_rgba(42,36,31,0.12)]
+
+                                        transition
+                                        duration-200
+
+                                        hover:scale-[1.04]
+                                        hover:bg-[var(--cartoon-concerto)]
+
+                                        focus-visible:outline-none
+                                        focus-visible:ring-2
+                                        focus-visible:ring-[var(--cartoon-cinerous)]
+                                        focus-visible:ring-offset-2
+
+                                        min-[701px]:size-10
+                                    "
+                                >
+                                    <svg
+                                        aria-hidden="true"
+                                        viewBox="0 0 24 24"
+                                        className="
+                                            size-[17px]
+
+                                            transition-transform
+                                            duration-200
+
+                                            group-hover:rotate-90
+                                        "
+                                    >
+                                        <path
+                                            d="M6 6l12 12M18 6L6 18"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="1.8"
+                                            strokeLinecap="round"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            {/* IMAGE AREA */}
+
+                            <div
+                                className="
+                                    relative
+
+                                    flex
+                                    min-h-0
+                                    flex-1
+
+                                    items-center
+                                    justify-center
+
+                                    overflow-hidden
+
+                                    bg-[rgba(30,26,24,0.9)]
+
+                                    p-3
+
+                                    min-[701px]:p-5
+                                "
+                            >
+                                <img
+                                    src={
+                                        selectedImage.src
+                                    }
+                                    alt={getAlt(
+                                        selectedImage,
+                                    )}
+                                    draggable={
+                                        false
+                                    }
+                                    className="
+                                        max-h-[72vh]
+                                        max-w-full
+
+                                        select-none
+
+                                        rounded-[2px]
+
+                                        object-contain
+
+                                        shadow-[0_16px_50px_rgba(0,0,0,0.24)]
+                                    "
+                                />
+
+                                {/* PREVIOUS */}
+
+                                {images.length >
+                                    1 && (
+                                        <button
+                                            type="button"
+                                            onClick={(
+                                                event,
+                                            ) => {
+                                                event.stopPropagation();
+
+                                                showPrevious();
+                                            }}
+                                            aria-label={
+                                                language ===
+                                                    "it"
+                                                    ? "Immagine precedente"
+                                                    : "Previous image"
+                                            }
+                                            className="
+                                            absolute
+                                            left-3
+                                            top-1/2
+                                            z-20
+
+                                            flex
+                                            size-10
+
+                                            -translate-y-1/2
+
+                                            items-center
+                                            justify-center
+
+                                            rounded-full
+
+                                            border
+                                            border-white/65
+
+                                            bg-white/90
+
+                                            text-[var(--cartoon-ink)]
+
+                                            shadow-[0_5px_20px_rgba(0,0,0,0.2)]
+
+                                            backdrop-blur-xl
+
+                                            transition
+                                            duration-200
+
+                                            hover:scale-105
+                                            hover:bg-white
+
+                                            focus-visible:outline-none
+                                            focus-visible:ring-2
+                                            focus-visible:ring-white
+
+                                            min-[701px]:left-4
+                                            min-[701px]:size-11
+                                        "
+                                        >
+                                            <svg
+                                                aria-hidden="true"
+                                                viewBox="0 0 24 24"
+                                                className="size-[19px]"
+                                            >
+                                                <path
+                                                    d="M15 18l-6-6 6-6"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="1.8"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                        </button>
+                                    )}
+
+                                {/* NEXT */}
+
+                                {images.length >
+                                    1 && (
+                                        <button
+                                            type="button"
+                                            onClick={(
+                                                event,
+                                            ) => {
+                                                event.stopPropagation();
+
+                                                showNext();
+                                            }}
+                                            aria-label={
+                                                language ===
+                                                    "it"
+                                                    ? "Immagine successiva"
+                                                    : "Next image"
+                                            }
+                                            className="
+                                            absolute
+                                            right-3
+                                            top-1/2
+                                            z-20
+
+                                            flex
+                                            size-10
+
+                                            -translate-y-1/2
+
+                                            items-center
+                                            justify-center
+
+                                            rounded-full
+
+                                            border
+                                            border-white/65
+
+                                            bg-white/90
+
+                                            text-[var(--cartoon-ink)]
+
+                                            shadow-[0_5px_20px_rgba(0,0,0,0.2)]
+
+                                            backdrop-blur-xl
+
+                                            transition
+                                            duration-200
+
+                                            hover:scale-105
+                                            hover:bg-white
+
+                                            focus-visible:outline-none
+                                            focus-visible:ring-2
+                                            focus-visible:ring-white
+
+                                            min-[701px]:right-4
+                                            min-[701px]:size-11
+                                        "
+                                        >
+                                            <svg
+                                                aria-hidden="true"
+                                                viewBox="0 0 24 24"
+                                                className="size-[19px]"
+                                            >
+                                                <path
+                                                    d="M9 6l6 6-6 6"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="1.8"
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                        </button>
+                                    )}
+                            </div>
+                        </div>
+                    </div>,
+                    document.body,
                 )}
-        </div>
+        </>
     );
 }
 
